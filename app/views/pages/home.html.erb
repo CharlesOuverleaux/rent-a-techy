@@ -1,2 +1,24 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<!-- BANNER -->
+<div id="banner">
+  <h1>Need technical help?</h1>
+  <h4>Find someone who can actually help  <br> you and book an appointment</h4>
+  <a href="/offers">
+    See offers
+  </a>
+</div>
+
+<!-- RECENT OFFERS -->
+<div id="recent">
+  <h3>Recent Offers:</h3>
+  <div id="con">
+    <% Offer.all.sample(3).each do |offer| %>
+      <%= render "components/offer_card", offer: offer %>
+    <% end %>
+  </div>
+</div>
+
+<!-- REVIEW -->
+<div id="review">
+  <h3>“I finally found my perfect teaching assistant”</h3>
+  <h6>Batch 605 participant - Le Wagon 2021</h6>
+</div>
