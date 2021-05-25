@@ -10,7 +10,7 @@ def c_user(first, last)
   User.create(first_name: first,
               last_name: last,
               user_name: un,
-              img_path: "app/assets/images/profiles/#{un}.png",
+              img_path: "profiles/#{un}.png",
               email: Faker::Internet.email,
               role: TECHY,
               password: PW)
