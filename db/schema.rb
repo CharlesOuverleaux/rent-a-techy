@@ -10,11 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2021_05_25_100534) do
+=======
+ActiveRecord::Schema.define(version: 2021_05_25_094906) do
+>>>>>>> 0ae5c84d37810465158392bbc6f6a82f92dc417b
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+<<<<<<< HEAD
   create_table "bookings", force: :cascade do |t|
     t.string "status"
     t.date "booking_date"
@@ -26,6 +31,8 @@ ActiveRecord::Schema.define(version: 2021_05_25_100534) do
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
+=======
+>>>>>>> 0ae5c84d37810465158392bbc6f6a82f92dc417b
   create_table "offers", force: :cascade do |t|
     t.string "title"
     t.text "description"
@@ -47,11 +54,15 @@ ActiveRecord::Schema.define(version: 2021_05_25_100534) do
     t.string "last_name"
     t.string "user_name"
     t.string "role"
+    t.string "img_path"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+<<<<<<< HEAD
   add_foreign_key "bookings", "offers"
   add_foreign_key "bookings", "users"
+=======
+>>>>>>> 0ae5c84d37810465158392bbc6f6a82f92dc417b
   add_foreign_key "offers", "users"
 end
