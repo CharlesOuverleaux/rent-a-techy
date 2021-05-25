@@ -14,3 +14,47 @@ $headers-font: 'Montserrat', sans-serif;
 // }
 // $my-font: "Font Name";
 
+
+.text-xs {
+  font-size: 0.75rem;
+}
+
+.text-s {
+  font-size: 0.875rem;
+}
+
+.text-m {
+  font-size: 1rem;
+}
+
+.text-l {
+  font-size: 1.25rem;
+}
+
+.text-xl {
+  font-size: 1.5rem;
+}
+
+.text-xxl {
+  font-size: 2rem;
+}
+
+.text-dark {
+  color: $gray-dark;
+}
+.text-med {
+  color: $gray-med;
+}
+.text-light {
+  color: $gray-light;
+}
+
+.text-bold {
+  font-weight: 800;
+}
+.text-regular {
+  font-weight: 400;
+}
+.text-thin {
+  font-weight: 200;
+}
