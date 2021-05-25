@@ -9,7 +9,7 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
   </head>
   <body>
-    <header> <%= render 'components/navbar' %></header>
+    <header> <%= render 'components/navbar', user: current_user %></header>
     <div class="content">
       <%= yield %>
     </div>
