@@ -1,0 +1,13 @@
+<% pills = [['ruby', 'red'], ['javascript', 'orange'], ['typescript', 'blue'],
+['c#', 'black'], ['css', 'purple']] %>
+
+<% sampled = pills.sample((2..4).to_a.sample) %>
+
+
+<% sampled.each do |pill| %>
+  <div class="py-1 px-2 m-1 rounded-pill shadow-sm text-xs text-bold" style="background-color: <%= pill[1] %>; color: white">
+    <%= pill[0] %>
+  </div>
+<% end %>
+
+
