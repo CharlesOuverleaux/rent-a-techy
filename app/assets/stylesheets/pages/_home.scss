@@ -45,9 +45,17 @@
 */
 #recent {
   width: 100%;
-  margin-top: 50px;
-  display: flex;
-  justify-content: space-evenly;
+  margin-top: 70px;
+
+  h3 {
+    text-align: center;
+    margin-bottom: 15px;
+  }
+
+  #con {
+    display: flex;
+    justify-content: space-evenly;
+  }
 }
 
 /*
@@ -55,7 +63,8 @@
 */
 #review {
   width: 100%;
-  margin-top: 50px;
+  margin-top: 80px;
+  margin-bottom: 50px;
   text-align: center;
 
   h3 {

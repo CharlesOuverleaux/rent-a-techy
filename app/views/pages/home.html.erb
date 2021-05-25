@@ -9,9 +9,12 @@
 
 <!-- RECENT OFFERS -->
 <div id="recent">
-  <div>OFFER 1</div>
-  <div>OFFER 2</div>
-  <div>OFFER 3</div>
+  <h3>Recent Offers:</h3>
+  <div id="con">
+    <% Offer.all.sample(3).each do |offer| %>
+      <%= render "components/offer_card", offer: offer %>
+    <% end %>
+  </div>
 </div>
 
 <!-- REVIEW -->
