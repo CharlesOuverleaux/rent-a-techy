@@ -1,0 +1,13 @@
+<h1>My bookings</h1>
+
+<ol>
+  <% @bookings.each do |booking| %>
+      <li>Status: <%= booking.status %> </li>
+      <ul>
+        <li>Your techy: <%= booking.user.user_name %></li>
+        <li>Date: <%= booking.booking_date %></li>
+        <li>Offer: <%= booking.offer.title %></li>
+        <li>Description: <%= booking.offer.description %></li>
+      </ul>
+  <% end %>
+</ol>
