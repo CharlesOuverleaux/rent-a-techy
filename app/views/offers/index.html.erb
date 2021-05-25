@@ -1,0 +1,9 @@
+<h1>Offers page</h1>
+
+<ul>
+  <% @offers.each do |offer| %>
+    <li>
+      <%= offer.title %> || <%= offer.description %>
+    </li>
+  <% end %>
+</ul>
