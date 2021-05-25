@@ -19,3 +19,11 @@
 * {
   box-sizing: border-box;
 }
+
+body {
+  min-height: 100vh;
+}
+
+body > .content {
+  flex: 1;
+}

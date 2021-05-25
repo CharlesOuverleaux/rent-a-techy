@@ -8,12 +8,12 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
   </head>
-  <body>
+  <body class="flex flex-col">
     <header> <%= render 'components/navbar', user: current_user %></header>
     <div class="content">
       <%= yield %>
     </div>
-    <footer></footer>
+    <%= render 'components/footer' %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
   </body>
