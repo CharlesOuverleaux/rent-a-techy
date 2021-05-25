@@ -1,0 +1,25 @@
+<div class="offer-card-container p-3 rounded-lg shadow-sm">
+  <div class="header flex flex-row justify-start items-stretch">
+    <%= image_tag offer.user[:img_path], class: "avatar" %>
+    <div class="title p-3">
+      <div class="name text-xl text-dark"><%= offer.user[:first_name]  %> <%= offer.user[:last_name]  %> </div>
+      <div class="bio text-m text-med">Fullstack Develepor</div>
+    </div>
+  </div>
+  <div class="content flex flex-col justify-start items-stretch">
+    <div class="title text-l text-dark text-bold"><%= offer[:title] %></div>
+    <div class="description text-m text-dark"><%= offer[:description] %></div>
+  </div>
+  <div class="footer flex flex-row justify-between items-end pt-4">
+    <div class="tags flex flex-row wrap">
+      <%= render 'components/pill' %>
+
+    </div>
+    <div class="price flex flex-col p-1">
+      <div class="text-xl text-dark text-bold">free</div>
+      <div class="text-xs text-med">
+        price per hour
+      </div>
+    </div>
+  </div>
+</div>
