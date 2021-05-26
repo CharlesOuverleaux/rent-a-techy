@@ -2,10 +2,37 @@
   display: flex;
   flex-direction: column;
   align-items: stretch;
+  min-width: 350px;
   width: 350px;
   height: 300px;
-  background-color: white;
+  background-color: $gray-lightest;
+  border: 1px solid hsla(200, 20%, 20%, 0.1);
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.1s ease;
 }
 
+.offer-card-container:hover {
+  filter: saturate(1.2);
+  transform: translateY(-5px);
+  box-shadow: $shadow-xl;
+}
 
+.offer-card-header {
+  background-color: $gray-lighter;
 
+  overflow: hidden;
+}
+.offer-card-photo {
+  width: 100px;
+  height: 100%;
+  object-fit: cover;
+}
+
+.offer-card-price {
+  width: 100px;
+}
+
+.offer-card-pills {
+  align-content: center;
+}
