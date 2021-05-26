@@ -2,3 +2,7 @@
 
 <%= @offer.title  %>
 <%= @offer.description %>
+
+<%= simple_form_for [@offer, @booking] do |f| %>
+  <%= f.submit class: 'button button-primery' %>
+<% end %>
