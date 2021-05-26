@@ -1,5 +1,7 @@
 require 'faker'
 
+# changed ö -> oe for Arif, Gyoergyi, Christian
+
 TECHY = "techy"
 USER = "user"
 PW = "123456"
@@ -29,9 +31,16 @@ def c_users(first, last, isCustomer = false)
   end
 end
 
+#remove all
+puts "removing old data..."
+Booking.destroy_all
+Offer.destroy_all
+User.destroy_all
+
+puts "\nstarting to seed..."
 # techies team
 c_users('Charles', 'Overlaux')
-c_users('Arif', 'Gömleksiz')
+c_users('Arif', 'Goemleksiz')
 c_users('Maxim', 'Wolotschij')
 c_users('Hannes', 'Schaletzky')
 # techies others
@@ -53,30 +62,31 @@ c_users('Oguz', 'Karahanoglu')
 c_users('Emily', 'Hoult')
 c_users('Vedran', 'Hamovic')
 c_users('Vincenzo', 'Galante')
-c_users('Györgyi', 'Farkas')
+c_users('Gyoergyi', 'Farkas')
 c_users('Hannah', 'Eichelsdoerfer')
 c_users('Emanuele', 'Del Prete')
-c_users('Christian', 'Böehme')
+c_users('Christian', 'Boehme')
 c_users('Neytullah', 'Bahadir')
 c_users('Mais', 'Aroq')
 c_users('Jeanie', 'Ahn')
 
 # customers
 puts "\n"
-5.times do
+10.times do
   names = Faker::FunnyName.name.split(' ')
   c_users(names.first, names.last, true)
 end
 
 # bookings
+puts "\n"
 customers = User.where(role: USER)
 20.times do
-  Booking.create(user: customers.sample,
-                 offer: Offer.all.sample,
-                 booking_date:"#{rand(1..28)}/#{rand(3..10)}/20#{rand(14..21)}",
-                 status: STATUS.sample)
+  booking = Booking.create(user: customers.sample,
+                           offer: Offer.all.sample,
+                           booking_date:"#{rand(1..28)}/#{rand(3..10)}/20#{rand(14..21)}",
+                           status: STATUS.sample)
+  puts "#{booking.status} - #{booking.user.user_name} booked #{booking.offer.user.user_name} for #{booking.booking_date}"
 end
-puts "\nCreated 20 bookings"
 
 # done
 
