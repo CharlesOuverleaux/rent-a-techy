@@ -2,13 +2,7 @@
 
 <ol>
   <% @bookings.each do |booking| %>
-      <li>Status: <%= booking.status %> ||
-        <%= link_to "Cancel booking", booking_path(booking.id), method: :delete, data: { confirm: "Are you sure?" } %></li>
-      <ul>
-        <li>Your techy: <%= booking.user.user_name %></li>
-        <li>Date: <%= booking.booking_date %></li>
-        <li>Offer: <%= booking.offer.title %></li>
-        <li>Description: <%= booking.offer.description %></li>
-      </ul>
+    <%= render 'components/offer_card', offer: booking.offer %>
+    Status: <%= booking.status %> || <%= link_to "Cancel booking", booking_path(booking.id), method: :delete, data: { confirm: "Are you sure?" } %>
   <% end %>
 </ol>
