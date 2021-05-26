@@ -4,5 +4,6 @@
 <%= @offer.description %>
 
 <%= simple_form_for [@offer, @booking] do |f| %>
-  <%= f.submit class: 'button button-primery' %>
+  <%= f.input :booking_date, as: :string, required: true, input_html: {class: "datepicker"} %>
+  <%= f.submit class: 'button button-primary' %>
 <% end %>
