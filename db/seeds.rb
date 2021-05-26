@@ -20,7 +20,7 @@ def c_users(first, last, isCustomer = false)
 
   # offers (only for techies)
   unless isCustomer
-    rand(1..3).times do
+    1.times do
       offer = Offer.create(title: Faker::Computer.platform,
                            description: Faker::Quote.famous_last_words,
                            user: user)
@@ -29,11 +29,37 @@ def c_users(first, last, isCustomer = false)
   end
 end
 
-# techies
+# techies team
 c_users('Charles', 'Overlaux')
 c_users('Arif', 'Gömleksiz')
 c_users('Maxim', 'Wolotschij')
 c_users('Hannes', 'Schaletzky')
+# techies others
+c_users('Nora', 'Von Breitenbach')
+c_users('Erik', 'Vogler')
+c_users('Maria', 'Vlad')
+c_users('Valentina', 'Sapigni')
+c_users('Conor', 'Quarry')
+c_users('Prabha', 'Pothen')
+c_users('Dusan', 'Pejcic')
+c_users('Christina', 'Oechsle')
+c_users('Vojtech', 'Matous')
+c_users('Mohamed', 'Mara')
+c_users('Lisa-Marie', 'Maaß')
+c_users('Jishuo', 'Ma')
+c_users('Bruno', 'Kreidler')
+c_users('Lisa', 'Keßler')
+c_users('Oguz', 'Karahanoglu')
+c_users('Emily', 'Hoult')
+c_users('Vedran', 'Hamovic')
+c_users('Vincenzo', 'Galante')
+c_users('Györgyi', 'Farkas')
+c_users('Hannah', 'Eichelsdoerfer')
+c_users('Emanuele', 'Del Prete')
+c_users('Christian', 'Böehme')
+c_users('Neytullah', 'Bahadir')
+c_users('Mais', 'Aroq')
+c_users('Jeanie', 'Ahn')
 
 # customers
 puts "\n"
