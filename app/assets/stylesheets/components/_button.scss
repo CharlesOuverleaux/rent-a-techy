@@ -14,14 +14,18 @@
   border: none;
   text-decoration: none;
   filter: contrast(1.1);
+  transform: translateY(-1px);
+
 }
 
 
 .button:active {
   filter: contrast(1) brightness(1.6);
+  transform: translateY(1px)
 }
 
 .button-primary {
+  display: inline-block;
   color: $gray-light;
   background-color: $gray-dark;
 }
@@ -62,4 +66,8 @@
 .button-text:hover {
   color: $gray-dark;
   text-decoration: underline;
+}
+
+.unstyled-link:hover {
+  text-decoration: none;
 }
