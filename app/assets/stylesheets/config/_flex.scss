@@ -9,9 +9,16 @@
 .flex-col {
   flex-direction: column;
 }
+.flex-grow {
+  flex-grow: 1;
+}
 
 .wrap {
   flex-wrap: wrap;
+}
+
+.wrap-reverse {
+  flex-wrap: wrap-reverse;
 }
 
 .justify-start {
@@ -20,6 +27,14 @@
 
 .justify-between {
   justify-content: space-between;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.items-center {
+  align-items: center;
 }
 
 .items-stretch {

@@ -1,8 +1,6 @@
 // Graphical variables
-@import "config/colors";
-@import "config/fonts";
-@import "config/bootstrap_variables";
-@import "config/flex";
+@import "config/index";
+
 
 
 // External libraries
@@ -18,4 +16,12 @@
 
 * {
   box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+}
+
+body > .content {
+  flex: 1;
 }

@@ -1,0 +1,10 @@
+.pill {
+  cursor: pointer;
+  filter: saturate(0.5)
+}
+
+.pill:hover {
+  filter: saturate(1) contrast(1.1);
+  transform: translateY(2px);
+  box-shadow: none;
+}

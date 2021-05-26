@@ -1,25 +1,28 @@
-<div class="offer-card-container p-3 rounded-lg shadow-sm">
-  <div class="header flex flex-row justify-start items-stretch">
-    <%= image_tag offer.user[:img_path], class: "avatar" %>
-    <div class="title p-3">
-      <div class="name text-xl text-dark"><%= offer.user[:first_name]  %> <%= offer.user[:last_name]  %> </div>
-      <div class="bio text-m text-med">Fullstack Develepor</div>
-    </div>
-  </div>
-  <div class="content flex flex-col justify-start items-stretch">
-    <div class="title text-l text-dark text-bold"><%= offer[:title] %></div>
-    <div class="description text-m text-dark"><%= offer[:description] %></div>
-  </div>
-  <div class="footer flex flex-row justify-between items-end pt-4">
-    <div class="tags flex flex-row wrap">
-      <%= render 'components/pill' %>
 
+<%= link_to offer_path(offer.id), class:"unstyled-link" do %>
+  <div class="shadow-m offer-card-container rounded-sm mx-2 my-4 ">
+    <div class="offer-card-header flex flex-row justify-start items-stretch mb-2">
+      <%= image_tag offer.user[:img_path], class: "offer-card-photo" %>
+      <div class="title p-3">
+        <div class="name text-l text-dark"><%= offer.user[:first_name]  %> <%= offer.user[:last_name]  %> </div>
+        <div class="bio text-m text-med">Fullstack Develepor</div>
+      </div>
     </div>
-    <div class="price flex flex-col p-1">
-      <div class="text-xl text-dark text-bold">free</div>
-      <div class="text-xs text-med">
-        price per hour
+    <div class="content px-3 flex flex-col flex-grow justify-start items-stretch">
+      <div class="title text-l text-dark text-bold"><%= offer[:title] %></div>
+      <div class="description text-m text-med"><%= offer[:description] %></div>
+    </div>
+    <div class="footer px-3 pb-3 flex flex-row justify-between items-end pt-4">
+      <div class="offer-card-tags flex flex-row wrap-reverse items-center">
+        <%= render 'components/pill' %>
+
+      </div>
+      <div class="offer-card-price flex flex-col ml-2 items-center">
+        <div class="text-xl text-dark text-boldest">free</div>
+        <div class="text-xs text-med">
+          price per hour
+        </div>
       </div>
     </div>
   </div>
-</div>
+<%end%>
