@@ -1,0 +1,16 @@
+.offers-container {
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+.offers-search-container {
+  background-color: $gray-lightest;
+}
+
+#offers-search-input {
+  outline: none;
+  background-color: transparent;
+  border: none;
+  width: 400px;
+  margin: 0 auto;
+}

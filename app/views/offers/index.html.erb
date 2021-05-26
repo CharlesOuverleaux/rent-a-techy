@@ -1,9 +1,12 @@
-<h1>Offers page</h1>
 
-<ul>
-  <% @offers.each do |offer| %>
-    <li>
-      <%= link_to offer.title, offer_path(offer) %> || <%= offer.description %>
-    </li>
-  <% end %>
-</ul>
+<div class="offers-container flex flex-col items-center">
+  <h1 class="text-xl text-bold">Browse offers</h1>
+  <div class="offers-search-container p-3 rounded"> <input type="search" name="offers-search" id="offers-search-input" class="text-xl p-1 "> <i class="fa fa-search" aria-hidden="true"></i>
+</div>
+  <div class="offers-grid flex flex-row wrap justify-center content-start">
+    <% @offers.each do |offer| %>
+      <%= render 'components/offer_card', offer: offer %>
+    <% end %>
+  </div>
+</div>
+
