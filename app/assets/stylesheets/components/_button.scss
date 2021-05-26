@@ -15,13 +15,11 @@
   text-decoration: none;
   filter: contrast(1.1);
   transform: translateY(-1px);
-
 }
-
 
 .button:active {
   filter: contrast(1) brightness(1.6);
-  transform: translateY(1px)
+  transform: translateY(1px);
 }
 
 .button-primary {
@@ -31,22 +29,26 @@
 }
 
 .button-primary:hover {
-
   color: $gray-light;
   background-color: $gray-dark;
-
 }
 .button-secondary {
-
   color: $gray-dark;
   background-color: none;
   border: 1px solid $gray-dark;
+}
 
-
+.button-danger {
+  background-color: #dc143cde;
+  color: white;
+  &:hover {
+    background-color: #dc143c;
+    color: white;
+    transform: translateY(0px);
+  }
 }
 
 .button-secondary:hover {
-
   padding: 11px 17px;
   border: 2px solid $gray-dark;
   color: $gray-dark;
@@ -54,13 +56,9 @@
   filter: contrast(1.1);
 }
 
-
-
 .button-text {
-
   color: $gray-dark;
   background-color: none;
-
 }
 
 .button-text:hover {

@@ -1,8 +1,25 @@
-<h1>My bookings</h1>
 
-<ol>
-  <% @bookings.each do |booking| %>
-    <%= render 'components/offer_card', offer: booking.offer %>
-    Status: <%= booking.status %> || <%= link_to "Cancel booking", booking_path(booking.id), method: :delete, data: { confirm: "Are you sure?" } %>
-  <% end %>
-</ol>
+<div class="bookings-container">
+
+  <h1 class="text-xl text-bold text-center">My bookings</h1>
+
+  <div class="flex flex-row flex-wrap justify-center ">
+    <% @bookings.each do |booking| %>
+      <div class="bookings-card flex flex-col items-center">
+        <%= render 'components/offer_card', offer: booking.offer %>
+        <div class="flex flex-row justify-even mb-2">
+          <div class="date px-2 text-bold text-l"><%= booking.booking_date.strftime("%d.%m.%Y")%></div>
+          <div class="status px-2 text-l"><%= booking.status %></div>
+        </div>
+        <% unless booking.status == 'declined' %>
+          <div class="flex flex-row justfiy-between">
+            <%= link_to "Cancel booking", booking_path(booking.id), method: :delete, data: { confirm: "Are you sure?" }, class: "button button-danger" %>
+          </div>
+        <% end %>
+      </div>
+      <!-- Status: <%= booking.status %> || <%= link_to "Cancel booking", booking_path(booking.id), method: :delete, data: { confirm: "Are you sure?" } %> -->
+    <% end %>
+  </div>
+
+</div>
+

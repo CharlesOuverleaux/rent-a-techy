@@ -1,0 +1,23 @@
+.bookings-card {
+  background-color: $gray-lightest;
+  border: 1px solid #b3b3b3;
+  padding: 20px;
+  margin: 15px;
+  transition: all 0.15s ease;
+  border-radius: 8px;
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: $shadow-xl;
+  }
+}
+
+.bookings-card > a > .offer-card-container:hover {
+  transform: none;
+  box-shadow: $shadow-s;
+  filter: none;
+}
+
+.bookings-card > a > .offer-card-container {
+  margin: 0 0 15px 0 !important;
+
+}
