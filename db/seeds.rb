@@ -79,5 +79,6 @@ end
 puts "\nCreated 20 bookings"
 
 # done
-puts "\nSeeding done."
+
+puts "\n--------------------------\nSeeding done."
 puts "L0ve from Hänn3s"
