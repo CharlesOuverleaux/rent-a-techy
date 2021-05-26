@@ -3,15 +3,11 @@ class BookingsController < ApplicationController
     @bookings = Booking.all
   end
 
-  def new
-    @booking = Booking.new
-  end
-
   def create
-    @booking = Booking.new
+    @booking = Booking.new(offer_id: params[:offer_id], user:current_user)
     @booking.status = "pending"
     if @booking.save
-      redirect_to offers_index_path
+      redirect_to offers_path
     end
   end
 end
