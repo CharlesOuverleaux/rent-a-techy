@@ -23,12 +23,25 @@ def c_users(first, last, isCustomer = false)
   # offers (only for techies)
   unless isCustomer
     1.times do
+      # 1 to 5 skills -> connected numbers
+      skill_id = rand(0...Skill.count - 4)
+      skills = Skill.all[skill_id..(skill_id + rand(0..4))]
       offer = Offer.create(title: Faker::Computer.platform,
                            description: Faker::Quote.famous_last_words,
-                           user: user)
+                           user: user,
+                           skills: skills)
       puts "\t-> added offer"
+      skills.each { |skill| puts "\t    #{skill.name}" }
     end
   end
+end
+
+@h_c = 0 # hue_code
+def c_skill(name)
+  return if @h_c > 359
+  Skill.create(name: name, hue_code: @h_c)
+  puts "added: #{name} (#{@h_c})"
+  @h_c += 10
 end
 
 #remove all
@@ -36,8 +49,55 @@ puts "removing old data..."
 Booking.destroy_all
 Offer.destroy_all
 User.destroy_all
+Skill.destroy_all
 
 puts "\nstarting to seed..."
+
+# ------ SKILLS ------
+# Ruby
+c_skill('Ruby')
+c_skill('Rails')
+c_skill('ActiveRecord')
+c_skill('SublimeText')
+c_skill('RSpec')
+# JS/TS
+c_skill('Javascript')
+c_skill('Typescript')
+c_skill('React')
+c_skill('Vue')
+c_skill('Bootstrap')
+c_skill('Tailwind')
+c_skill('Svelte')
+c_skill('VSCode')
+# WebDev
+c_skill('HTML')
+c_skill('CSS')
+c_skill('SASS')
+c_skill('LESS')
+# .NET
+c_skill('C#')
+c_skill('.NET')
+c_skill('VB')
+c_skill('VBA')
+c_skill('VisualStudio')
+# Python
+c_skill('Python')
+c_skill('Django')
+c_skill('Flask')
+# Java
+c_skill('Java')
+c_skill('Spring')
+c_skill('IntelliJ')
+# DevOps
+c_skill('git')
+c_skill('GitHub')
+c_skill('Azure')
+c_skill('Heroku')
+c_skill('AWS')
+c_skill('CD')
+c_skill('CI')
+c_skill('Testing')
+
 # techies team
 c_users('Charles', 'Ouverleaux')
 c_users('Arif', 'Goemleksiz')
