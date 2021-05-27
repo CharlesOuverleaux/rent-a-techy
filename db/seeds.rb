@@ -6,23 +6,23 @@ TECHY = "techy"
 USER = "user"
 PW = "123456"
 STATUS = ["pending", "confirmed", "declined"]
+TITLES = [
+  "Helping with <q>",
+  "<q> Support <3",
+  "Your friendly <q> hero",
+  "<q> super service!",
+  "<q> machine!",
+  "<q> assistant :)",
+  "Fixing <q> issues",
+  "Simple <q>!",
+  "Enhancing <q>",
+  "<q> difficulties?",
+  "<q> help?"
+]
 
 # create random titel
 def c_title(skill)
-  templates = [
-    "Helping with <q>",
-    "<q> Support <3",
-    "Your friendly <q> hero",
-    "<q> super service!",
-    "<q> machine!",
-    "<q> assistant :)",
-    "Fixing <q> issues",
-    "Simple <q>!",
-    "Enhancing <q>",
-    "<q> difficulties?",
-    "<q> help?"
-  ]
-  return templates.sample.gsub("<q>", skill.name)
+  return TITLES.sample.gsub("<q>", skill.name)
 end
 
 # method to create customers and techies
@@ -42,7 +42,6 @@ def c_users(first, last, isCustomer = false)
   unless isCustomer
     1.times do
       # 1 to 5 skills -> connected numbers
-      #Faker::Quote.famous_last_words
       skill_id = rand(0...Skill.count - 4)
       skills = Skill.all[skill_id..(skill_id + rand(0..4))]
       offer = Offer.create(title: c_title(skills.sample),
@@ -55,12 +54,12 @@ def c_users(first, last, isCustomer = false)
   end
 end
 
-@h_c = 0 # hue_code
+@hc = 0 # hue_code
 def c_skill(name)
-  return if @h_c > 359
-  Skill.create(name: name, hue_code: @h_c)
-  puts "added: #{name} (#{@h_c})"
-  @h_c += 10
+  return if @hc > 359
+  Skill.create(name: name, hue_code: @hc)
+  puts "added: #{name} (#{@hc})"
+  @hc += 10
 end
 
 #remove all
