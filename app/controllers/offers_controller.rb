@@ -3,17 +3,11 @@ class OffersController < ApplicationController
 
   def index
     if params[:query].present?
-      sql_query = " \
-        offers.title @@ :query \
-        OR offers.description @@ :query \
-        OR users.first_name @@ :query \
-        OR users.last_name @@ :query \
-      "
-      @offers = Offer.joins(:user).where(sql_query, query: "%#{params[:query]}%")
-
+      @offers = Offer.search_by_title_and_description(params[:query])
     else
       @offers = Offer.all
     end
+
   end
 
   def show
