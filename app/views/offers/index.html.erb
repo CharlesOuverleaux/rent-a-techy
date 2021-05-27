@@ -12,9 +12,30 @@
   <%= submit_tag "Search", class: "btn btn-primary" %>
   <% end %>
   <div class="offers-grid flex flex-row wrap justify-center content-start">
-    <% @offers.each do |offer| %>
-      <%= render 'components/offer_card', offer: offer %>
+    <%  if @search && !@search.blank? %>
+      <% @offers.each do |offer| %>
+
+       <!-- USER RESULTS  -->
+        <% if @users_results %>
+          <% if offer.user_id.in? @users_results %>
+            <%= render 'components/offer_card', offer: offer %>
+          <% end %>
+        <% end %>
+
+        <!-- OFFER RESULTS -->
+        <% if @offer_results %>
+          <% if offer.id.in? @offer_results %>
+              <%= render 'components/offer_card', offer: offer %>
+          <% end %>
+        <% end %>
+
+      <% end %>
+    <% else %>
+      <% @offers.each do |offer| %>
+        <%= render 'components/offer_card', offer: offer %>
+      <% end %>
     <% end %>
+
   </div>
 </div>
 
