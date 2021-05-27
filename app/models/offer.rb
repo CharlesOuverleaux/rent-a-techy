@@ -5,4 +5,8 @@ class Offer < ApplicationRecord
 
   validates :title, :description, presence: true
   validates :description, length: { minimum: 5, maximum: 250 }
+
+  include PgSearch::Model
+  multisearchable against: [:title, :description]
+
 end
