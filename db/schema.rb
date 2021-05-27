@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 2021_05_27_124334) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.boolean "available_now"
+    t.boolean "available_now", default: false
     t.index ["user_id"], name: "index_offers_on_user_id"
   end
 
