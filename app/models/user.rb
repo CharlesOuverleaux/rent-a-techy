@@ -12,4 +12,7 @@ class User < ApplicationRecord
   validates :email, uniqueness: true
   validates :role, inclusion: { in: ROLES }
   validates :user_name, length: { minimum: 5, maximum: 20 }
+
+  include PgSearch::Model
+  multisearchable against: [:first_name, :last_name]
 end
