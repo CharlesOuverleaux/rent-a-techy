@@ -4,7 +4,7 @@
   align-items: stretch;
   min-width: 350px;
   width: 350px;
-  height: 300px;
+  height: 320px;
   background-color: $gray-lightest;
   border: 1px solid hsla(200, 20%, 20%, 0.1);
   cursor: pointer;
@@ -20,9 +20,11 @@
 
 .offer-card-header {
   background-color: $gray-lighter;
-
+  min-height: 100px;
+  height: 100px;
   overflow: hidden;
 }
+
 .offer-card-photo {
   width: 100px;
   height: 100%;
@@ -30,7 +32,7 @@
 }
 
 .offer-card-price {
-  width: 100px;
+  width: 120px;
 }
 
 .offer-card-pills {
