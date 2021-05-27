@@ -50,8 +50,9 @@ def c_users(first, last, isCustomer = false)
       offer = Offer.create(title: c_title(skills.sample),
                            description: Faker::Hacker.say_something_smart,
                            user: user,
+                           skills: skills,
                            available_now: now,
-                           skills: skills)
+                           hourly_rate: rand(25..150))
       puts "-> added offer"
       skills.each { |skill| puts "    #{skill.name}" }
     end
