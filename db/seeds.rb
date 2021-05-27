@@ -7,6 +7,24 @@ USER = "user"
 PW = "123456"
 STATUS = ["pending", "confirmed", "declined"]
 
+# create random titel
+def c_title(skill)
+  templates = [
+    "Helping with <q>",
+    "<q> Support <3",
+    "Your friendly <q> hero",
+    "<q> super service!",
+    "<q> machine!",
+    "<q> assistant :)",
+    "Fixing <q> issues",
+    "Simple <q>!",
+    "Enhancing <q>",
+    "<q> difficulties?",
+    "<q> help?"
+  ]
+  return templates.sample.gsub("<q>", skill.name)
+end
+
 # method to create customers and techies
 def c_users(first, last, isCustomer = false)
   un = "#{first}#{last}" # username
@@ -24,10 +42,11 @@ def c_users(first, last, isCustomer = false)
   unless isCustomer
     1.times do
       # 1 to 5 skills -> connected numbers
+      #Faker::Quote.famous_last_words
       skill_id = rand(0...Skill.count - 4)
       skills = Skill.all[skill_id..(skill_id + rand(0..4))]
-      offer = Offer.create(title: Faker::Computer.platform,
-                           description: Faker::Quote.famous_last_words,
+      offer = Offer.create(title: c_title(skills.sample),
+                           description: Faker::Hacker.say_something_smart,
                            user: user,
                            skills: skills)
       puts "\t-> added offer"
