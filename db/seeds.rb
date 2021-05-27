@@ -38,24 +38,24 @@ def c_users(first, last, isCustomer = false)
                      password: PW)
   puts "#{isCustomer ? 'Customer' : 'Techy'}: #{un}"
 
-  # offers (only for techies)
+  # add one offer per techy
   unless isCustomer
-    1.times do
-      # generate 1 to 5 skills -> connected numbers
-      skill_id = rand(0...Skill.count - 4)
-      skills = Skill.all[skill_id..(skill_id + rand(0..4))]
-      # randomize available_now -> only 1/3 are true
-      now = (rand(1..3) % 2).zero?
-      # create offer
-      offer = Offer.create(title: c_title(skills.sample),
-                           description: Faker::Hacker.say_something_smart,
-                           user: user,
-                           skills: skills,
-                           available_now: now,
-                           hourly_rate: rand(25..150))
-      puts "-> added offer"
-      skills.each { |skill| puts "    #{skill.name}" }
-    end
+    # generate 1 to 5 skills -> connected numbers
+    skill_id = rand(0...Skill.count - 4)
+    skills = Skill.all[skill_id..(skill_id + rand(0..4))]
+    # randomize available_now -> only 1/3 are true
+    now = (rand(1..3) % 2).zero?
+    # generate rate
+    rate = rand(25..150)
+    # create offer
+    offer = Offer.create(title: c_title(skills.sample),
+                         description: Faker::Hacker.say_something_smart,
+                         user: user,
+                         skills: skills,
+                         available_now: now,
+                         hourly_rate: rate)
+    puts "-> added offer"
+    skills.each { |skill| puts "    #{skill.name}" }
   end
 end
 
