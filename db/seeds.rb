@@ -41,15 +41,19 @@ def c_users(first, last, isCustomer = false)
   # offers (only for techies)
   unless isCustomer
     1.times do
-      # 1 to 5 skills -> connected numbers
+      # generate 1 to 5 skills -> connected numbers
       skill_id = rand(0...Skill.count - 4)
       skills = Skill.all[skill_id..(skill_id + rand(0..4))]
+      # randomize available_now -> only 1/3 are true
+      now = (rand(1..3) % 2).zero?
+      # create offer
       offer = Offer.create(title: c_title(skills.sample),
                            description: Faker::Hacker.say_something_smart,
                            user: user,
+                           available_now: now,
                            skills: skills)
-      puts "\t-> added offer"
-      skills.each { |skill| puts "\t    #{skill.name}" }
+      puts "-> added offer"
+      skills.each { |skill| puts "    #{skill.name}" }
     end
   end
 end
@@ -58,7 +62,7 @@ end
 def c_skill(name)
   return if @hc > 359
   Skill.create(name: name, hue_code: @hc)
-  puts "added: #{name} (#{@hc})"
+  puts "added: #{@hc} - #{name}"
   @hc += 10
 end
 
