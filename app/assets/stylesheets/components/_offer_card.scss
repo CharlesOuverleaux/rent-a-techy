@@ -12,6 +12,11 @@
   transition: all 0.1s ease;
 }
 
+.offer-card-header .pill:hover {
+  filter: saturate(0.5);
+  transform: none;
+}
+
 .offer-card-container:hover {
   filter: saturate(1.2);
   transform: translateY(-5px);
