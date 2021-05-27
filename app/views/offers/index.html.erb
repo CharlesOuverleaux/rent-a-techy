@@ -1,8 +1,16 @@
 
 <div class="offers-container flex flex-col items-center">
   <h1 class="text-xl text-bold">Browse offers</h1>
-  <div class="offers-search-container p-3 rounded"> <input type="search" name="offers-search" id="offers-search-input" class="text-xl p-1 "> <i class="fa fa-search" aria-hidden="true"></i>
-</div>
+
+
+    <%= form_tag offers_path, method: :get do %>
+    <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Find a techy"
+  %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+  <% end %>
   <div class="offers-grid flex flex-row wrap justify-center content-start">
     <% @offers.each do |offer| %>
       <%= render 'components/offer_card', offer: offer %>

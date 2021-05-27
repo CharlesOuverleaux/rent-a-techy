@@ -39,7 +39,7 @@ User.destroy_all
 
 puts "\nstarting to seed..."
 # techies team
-c_users('Charles', 'Overlaux')
+c_users('Charles', 'Ouverleaux')
 c_users('Arif', 'Goemleksiz')
 c_users('Maxim', 'Wolotschij')
 c_users('Hannes', 'Schaletzky')
