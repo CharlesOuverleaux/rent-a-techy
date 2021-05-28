@@ -14,6 +14,7 @@ class Booking < ApplicationRecord
       booking = Booking.find(id)
       booking.status = STATUS[rand(1..2)]
       booking.save
+      # Notification.create(user: current_user, text: "booking confirmed!")
     end
   end
 end
