@@ -13,7 +13,12 @@
         </div>
         <% unless booking.status == 'declined' %>
           <div class="flex flex-row justfiy-between">
-            <%= link_to "Cancel booking", booking_path(booking.id), method: :delete, data: { confirm: "Are you sure?" }, class: "button button-danger" %>
+            <%= link_to "Cancel", booking_path(booking.id), method: :delete, data: { confirm: "Are you sure?" }, class: "button button-danger" %>
+          </div>
+        <% end %>
+        <% if booking.status == 'declined' %>
+          <div class="flex flex-row justfiy-between">
+            <%= link_to "Delete", booking_path(booking.id), method: :delete, data: { confirm: "Are you sure?" }, class: "button button-danger" %>
           </div>
         <% end %>
       </div>
