@@ -1,7 +1,9 @@
+<!-- Offer Card -->
 <div class='container-booking' style="display: flex; justify-content: center; margin-top: 60px; align-items: baseline">
   <div class='item-booking' style="margin-right: 25px;">
     <%= render 'components/offer_card', offer: @offer %>
   </div>
+  <!-- Booking -->
   <div class='item-booking' style='text-align: center;'>
     <%= simple_form_for [@offer, @booking] do |f| %>
     <%= f.input :booking_date, as: :string, required: true, input_html: {class: "datepicker"} %>
@@ -9,11 +11,12 @@
     <% end %>
   </div>
 
+<!-- Reviews -->
   <ul>
     <% @offer.reviews.each do |review| %>
-    <li>  <%= review.title %> </li>
-    <li>  <%= review.content %> </li>
-    <li>  <%= review.rating %> </li>
+    <li> Title: <%= review.title %> </li>
+    <li> Content: <%= review.content %> </li>
+    <li> Rating: <%= review.rating %> </li>
     <% end %>
   </ul>
 

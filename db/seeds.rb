@@ -47,13 +47,25 @@ def c_users(first, last, isCustomer = false)
     now = (rand(1..3) % 2).zero?
     # generate rate
     rate = rand(25..150)
+    # reviews
+    puts "\n"
+    reviews = []
+    10.times do
+      review = Review.create(
+        title:"test",
+        content:"test",
+        rating:rand(1..5)
+    )
+      reviews.push(review)
+    end
     # create offer
     offer = Offer.create(title: c_title(skills.sample),
                          description: Faker::Hacker.say_something_smart,
                          user: user,
                          skills: skills,
                          available_now: now,
-                         hourly_rate: rate)
+                         hourly_rate: rate,
+                         reviews: reviews)
     puts "-> added offer"
     skills.each { |skill| puts "    #{skill.name}" }
   end
@@ -73,6 +85,7 @@ Booking.destroy_all
 Offer.destroy_all
 User.destroy_all
 Skill.destroy_all
+Review.destroy_all
 
 puts "\nstarting to seed..."
 

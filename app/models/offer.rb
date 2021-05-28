@@ -9,5 +9,4 @@ class Offer < ApplicationRecord
 
   include PgSearch::Model
   multisearchable against: [:title, :description]
-
 end
