@@ -1,4 +1,4 @@
-<div class="<%='hover ' if hover%>pill py-1 px-2 m-1 rounded-pill shadow-xs text-xs text-bold" style="background-color: hsl(<%= skill[:hue_code] %>, 100%, 90%); color: hsl(<%= skill[:hue_code] %>, 100%, 40%)">
+<div class="<%='hover ' if hover%> <%='selectable ' if selectable%>pill py-1 px-2 m-1 rounded-pill shadow-xs text-xs text-bold" style="<%=selected ? 'color': 'background-color' %> : hsl(<%= skill[:hue_code] %>, 100%, 90%); <%=selected ? 'background-color': 'color' %>: hsl(<%= skill[:hue_code] %>, 100%, 40%)">
   <%= skill[:name] %>
 </div>
 
