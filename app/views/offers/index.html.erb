@@ -1,15 +1,33 @@
 
 <div class="offers-container flex flex-col items-center">
   <h1 class="text-xl text-bold">Browse offers</h1>
+  <%= form_tag offers_path, method: :get do %>
+    <div class="flex flex-row items-center justify-center">
+        <div class="offers-search-container">
+          <%= text_field_tag :query,
+            params[:query],
+            class: "offers-search-input p-2 m-2 text-l text-bold",
+            placeholder: "Find a techy"
+          %>
+        </div>
+        <%= submit_tag "Find my techy", class: "button button-primary m-1 px-4 py-3" %>
+    </div>
+    <div class="flex flex-col items-center">
+      <input type="checkbox"  id="availablenow" class="tagselect" name="availablenow"/>
+      <label for="availablenow" class="hover pill grayscale py-1 text-s px-2 m-1 rounded-pill shadow-xs text-bold" style="background-color: hsl(100, 100%, 90%); color: hsl(100, 100%, 40%)">
+          available now
+      </label>
+    </div>
 
+    <div class="tag-selector flex flex-row flex-wrap items-center justify-center">
+      <% @skills.each do |skill| %>
 
-    <%= form_tag offers_path, method: :get do %>
-    <%= text_field_tag :query,
-    params[:query],
-    class: "form-control",
-    placeholder: "Find a techy"
-  %>
-  <%= submit_tag "Search", class: "btn btn-primary" %>
+        <input type="checkbox"  id="<%= skill.name %>select" class="tagselect" name="skills[]" value="<%= skill.name %>"/>
+        <label for="<%= skill.name %>select" class="hover pill py-1 px-2 m-1 rounded-pill shadow-xs text-xs text-bold" style="background-color: hsl(<%= skill.hue_code %>, 100%, 90%); color: hsl(<%= skill.hue_code %>, 100%, 40%)">
+            <%= skill.name %>
+        </label>
+      <% end %>
+    </div>
   <% end %>
   <div class="offers-grid flex flex-row wrap justify-center content-start">
     <%  if @search && !@search.blank? %>

@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2021_05_28_105356) do
+=======
+ActiveRecord::Schema.define(version: 2021_05_28_094558) do
+>>>>>>> 8c8c344ed211fb6c8b33d5342c59746d25ea2f64
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,6 +66,16 @@ ActiveRecord::Schema.define(version: 2021_05_28_105356) do
     t.index ["searchable_type", "searchable_id"], name: "index_pg_search_documents_on_searchable_type_and_searchable_id"
   end
 
+  create_table "reviews", force: :cascade do |t|
+    t.string "title"
+    t.text "content"
+    t.integer "rating"
+    t.bigint "offer_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["offer_id"], name: "index_reviews_on_offer_id"
+  end
+
   create_table "skills", force: :cascade do |t|
     t.string "name"
     t.integer "hue_code"
@@ -91,4 +105,5 @@ ActiveRecord::Schema.define(version: 2021_05_28_105356) do
   add_foreign_key "notifications", "bookings"
   add_foreign_key "notifications", "users"
   add_foreign_key "offers", "users"
+  add_foreign_key "reviews", "offers"
 end

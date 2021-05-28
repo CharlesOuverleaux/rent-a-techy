@@ -1,0 +1,39 @@
+.tag-selector {
+  max-width: 900px;
+  margin: 10px auto;
+}
+
+.tagselect {
+  visibility: hidden;
+}
+
+.tagselect:checked + label {
+  filter:contrast(1) saturate(1.2);
+  border: 2px solid hsla(0,0%,0%,0.2);
+  text-shadow: 1px 1px  hsla(0,0%,0%,0.3);
+  &::before {
+    content: '● '
+  }
+}
+
+.tagselect:checked + label:hover {
+  filter:contrast(1) saturate(1.2);
+  border: 2px solid hsla(0,0%,0%,0.2);
+  text-shadow: 1px 1px  hsla(0,0%,0%,0.3);
+  &::before {
+    content: 'x '
+  }
+}
+
+.tagselect:not(:checked) + label {
+  color: #626262!important;
+  border: 2px solid hsla(0,0%,0%,0.0);
+}
+.tagselect:not(:checked) + label.grayscale {
+  filter: grayscale(1);
+  border: 2px solid hsla(0,0%,0%,0.5);
+}
+
+.tagselect:checked + label.grayscale {
+  filter: grayscale(0);
+}
