@@ -7,7 +7,8 @@
         <div class="name text-l text-dark"><%= offer.user[:first_name]  %> <%= offer.user[:last_name]  %> </div>
         <div class="bio text-m text-med">Fullstack Developer</div>
         <% if offer.available_now %>
-          <div class="pill py-1 px-2 rounded-pill shadow-xs text-xs text-bold" style="background-color: hsl(100, 100%, 90%); color: hsl(100, 100%, 40%); width:60px">&#11044; now</div>
+
+          <%= render 'components/pill', skill: {name: '● now', hue_code: 100 }, hover: false%>
         <% end %>
       </div>
     </div>
@@ -17,8 +18,9 @@
     </div>
     <div class="footer px-3 pb-3 flex flex-row justify-between items-end pt-4">
       <div class="offer-card-tags flex flex-row wrap-reverse items-center">
-        <%= render 'components/pill', skills: offer.skills%>
-
+        <% offer.skills.each do |skill| %>
+         <%= render 'components/pill', skill: skill, hover: true%>
+        <% end %>
       </div>
       <div class="offer-card-price flex flex-col ml-2 items-end">
         <div class="text-xl text-dark text-boldest"><%= offer.hourly_rate %>€<span class="text-xs">/h</span> </div>
