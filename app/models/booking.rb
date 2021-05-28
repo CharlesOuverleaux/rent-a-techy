@@ -8,13 +8,19 @@ class Booking < ApplicationRecord
 
   after_commit :change_status_fake, on: [:create]
 
+  # adjust booking status after time
   def change_status_fake
     Thread.new do
       sleep(5)
       booking = Booking.find(id)
-      booking.status = STATUS[rand(1..2)]
+      i = rand(1..2)
+      booking.status = STATUS[i]
       booking.save
-      # Notification.create(user: current_user, text: "booking confirmed!")
+
+      # create notification
+      msg = 'Your booking was confirmed!' if i == 1
+      msg = 'Your booking was declined!' if i == 2
+      Notification.create(booking: booking, user: booking.user, msg: msg)
     end
   end
 end
