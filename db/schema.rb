@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 2021_05_28_105356) do
     t.bigint "booking_id"
     t.bigint "user_id"
     t.string "msg"
+    t.boolean "showed", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["booking_id"], name: "index_notifications_on_booking_id"
