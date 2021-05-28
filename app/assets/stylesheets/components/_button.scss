@@ -32,6 +32,19 @@
   color: $gray-light;
   background-color: $gray-dark;
 }
+
+.button-highlight {
+  display: inline-block;
+  font-size: 1.5rem;
+  color: $gray-light;
+  background-color: crimson;
+}
+
+.button-highlight:hover {
+  color: $gray-light;
+  background-color: crimson;
+}
+
 .button-secondary {
   color: $gray-dark;
   background-color: none;
