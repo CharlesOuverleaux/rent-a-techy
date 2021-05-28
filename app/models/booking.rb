@@ -1,6 +1,7 @@
 class Booking < ApplicationRecord
   belongs_to :offer
   belongs_to :user
+  has_many :notifications, dependent: :destroy
 
   STATUS = ["pending", "confirmed", "declined"]
   validates :status, inclusion: { in: STATUS }

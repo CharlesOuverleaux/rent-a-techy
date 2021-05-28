@@ -9,6 +9,7 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
   </head>
   <body class="flex flex-col">
+    <div id="notifications_con"></div>
     <header> <%= render 'components/navbar', user: current_user %></header>
     <div class="content">
       <%= yield %>
