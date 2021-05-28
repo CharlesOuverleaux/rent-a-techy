@@ -10,15 +10,18 @@
     <%= f.submit class: 'button button-primary' %>
     <% end %>
   </div>
+</div>
 
-<!-- Reviews -->
-  <ul>
+  <!-- Reviews -->
+<div class="reviews mt-5">
+  <h2 class="text-center font-weight-bold mb-4">Reviews</h2>
+  <ul style="list-style-type: none">
     <% @offer.reviews.each do |review| %>
-    <li> Title: <%= review.title %> </li>
-    <li> Content: <%= review.content %> </li>
-    <li> Rating: <%= review.rating %> </li>
+    <div class="mb-3 mx-auto rounded" style="background-color: #F3F3F3; border: 1px solid hsla(200, 20%, 20%, 0.1); box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); padding: 20px; width: 800px; position: relative;">
+      <li class="mb-2"> <strong> <%= review.title %> </strong></li>
+      <li> <%= review.content %> </li>
+      <li style="position: absolute; top: 20px; right: 20px;"> ⭐️ <strong><%= review.rating %> </strong></li>
+    </div>
     <% end %>
   </ul>
-
-
 </div>

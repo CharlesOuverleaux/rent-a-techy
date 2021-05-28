@@ -19,7 +19,7 @@ TITLES = [
   "<q> difficulties?",
   "<q> help?"
 ]
-REVIEW_TITLE = ["AMAZING WORK!", "Love how it worked out", "5 ⭐️ - every time again!", "Totally convinced on the service", "This should be your first address if you need help with your code!", "Guys, awesome work! THX", "They totally blew my mind with this site - great job!", "Thank you soooo much for fixing my 🐛", "It was a great service!", "I'm soooo happy, thank you!🙏"]
+REVIEW_TITLE = ["AMAZING WORK!", "Love how it worked out", "5 Stars - every time again!", "Totally convinced on the service", "This should be your first address if you need help with your code!", "Guys, awesome work! THX", "They totally blew my mind with this site - great job!", "Thank you soooo much for fixing my 🐛", "It was a great service!", "I'm soooo happy, thank you!🙏"]
 REVIEW_CONTENT = ["Within 15 min, I was online with a seasoned engineer who was editing my code and pointing out my errors this was the first time I've ever experienced the potential of the Internet to transform learning.","Just used @RentATechy for the first time. OMG that is a magical experience. I'm going to spend too much money there.", "Just had a fantastic first experience with @RentATechy. John resolved my issue within 20-ish minutes, from across the globe. #TheFuture", "Just used @RentATechy for the first time Great experience Cameron was awesome! Definitely using this #Coding resource again", "This is probably the single greatest resource to learn app dev or basics of Al. $10 for 15 mins to remove a blocker.", "@RentATechy is my personal favorite platform for on-demand mentoring, so I'd definitely give it a shot!", "am so thankful for @RentATechy... saved my butt to finish this #Coding Bootcamp assignment that was a make/break it of staying", "Our team loves using @RentATechy as a resource. You can bounce ideas with someone w/ different tech strengths to problem solve. #edtech" ]
 
 # create random titel
@@ -52,7 +52,7 @@ def c_users(first, last, isCustomer = false)
     # reviews
     puts "\n"
     reviews = []
-    10.times do
+    rand(2..6).times do
       review = Review.create(
         title:REVIEW_TITLE.sample,
         content:REVIEW_CONTENT.sample,
