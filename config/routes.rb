@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
+  get 'team', to: 'pages#team'
   root to: 'pages#home'
   resources :offers, only: [:index, :show] do
     resources :bookings, only: [:create]
