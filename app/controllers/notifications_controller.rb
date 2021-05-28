@@ -3,10 +3,10 @@ class NotificationsController < ApplicationController
     # retrieve not showed notifications
     @notifications = Notification.where(user: current_user, showed: false)
     # set showed true
-    # @notifications.each do |noti|
-    #   noti.showed = true
-    #   noti.save
-    # end
+    @notifications.each do |noti|
+      noti.showed = true
+      noti.save
+    end
     # return json
     render json: @notifications
   end

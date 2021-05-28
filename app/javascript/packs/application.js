@@ -29,12 +29,13 @@ import "bootstrap";
 const fetchNotifications = async () => {
   const res = await fetch("/notifications")
   const notifications = await res.json()
-  console.log(notifications)
+  // console.log(notifications)
 
   const noti_con = document.getElementById('notifications_con')
   let innerHTML = ''
   notifications.forEach((noti) => {
-    innerHTML += `<div class="notification_con"><div>${noti.msg}</div><div>X</div></div>`
+    const color = noti.msg.includes("confirmed") ? 'notification_success' : 'notification_fail'
+    innerHTML += `<div class="notification_con ${color}" onclick="this.remove()"><div>${noti.msg}</div><div>X</div></div>`
   })
   // console.log(innerHTML)
   // console.log(noti_con)
@@ -47,9 +48,6 @@ document.addEventListener("turbolinks:load", () => {
   // initSelect2();
   initFlatpickr();
 
-  // while true {
-  //   setTimeout(5000, fetchNotifications)
-  // }
-
-  fetchNotifications()
+  // infinite check for notifications
+  setInterval(fetchNotifications, 5000);
 });

@@ -19,8 +19,9 @@ class Booking < ApplicationRecord
       booking.save
 
       # create notification
-      msg = 'Your booking was confirmed!' if i == 1
-      msg = 'Your booking was declined!' if i == 2
+      fn = booking.offer.user.first_name
+      msg = "#{fn} confirmed your booking! Get ready :)" if i == 1
+      msg = "#{fn} declined your booking! Next time :(" if i == 2
       Notification.create(booking: booking, user: booking.user, msg: msg)
     end
   end
